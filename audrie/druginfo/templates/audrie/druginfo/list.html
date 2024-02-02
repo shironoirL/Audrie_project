@@ -1,0 +1,16 @@
+{% extends "audrie/base.html" %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+<h1>My Blog</h1>
+{% for drug in drugs %}
+<h2>
+<a href="{% url 'druginfo:drug_detail' drug.id }">
+{{ drug.drugname }}
+</a>
+</h2>
+<p class="date">
+<!-- Published {{ post.publish }} by {{ post.author }} -->
+</p>
+{{ drug.drugname|truncatewords:30|linebreaks }}
+{% endfor %}
+{% endblock %}
